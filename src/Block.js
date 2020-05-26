@@ -16,8 +16,6 @@ const Block = (props) => {
   } = props
   const [startDate, endDate] = dateRange
   const currentTime = new Date()
-  // Correct current time based on UTC
-  currentTime.setHours()
 
   const classes = StyleSheet.create(getStyles(props))
 
