@@ -7,7 +7,7 @@ export const configSchema = {
   },
   text: {
     label: "Text Content",
-    type: ElementPropTypes.text,
+    type: ElementPropTypes.string,
   },
 }
 
