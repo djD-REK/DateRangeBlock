@@ -2,48 +2,45 @@ import React from "react"
 import { css, StyleSheet } from "aphrodite/no-important"
 import { getStyles } from "./getStyles"
 import { defaultConfig } from "./configs"
-import { moment } from "moment-timezone"
 
 const Block = (props) => {
-  const {
-    borderColor,
-    dateRange,
-    startTime,
-    endTime,
-    timeZone,
-    text,
-    utils,
-  } = props
-  const [startDate, endDate] = dateRange
-  const currentTime = new Date()
+  // Destructure the helper functions from the props
+  const { utils, joinClasses } = props
+  // isRendering is true in a live VOLT Store or a store's preview, and
+  // it is undefined in VOLT's Site Designer or when developing locally
+  const { isRendering } = utils
 
+  // Get the CSS styles from Aphrodite
   const classes = StyleSheet.create(getStyles(props))
+
+  // Destructure our Element props
+  const { dateRange, text } = props
+  // Destructure the dateRange array
+  const [startDate, endDate] = dateRange
+  // Fetch the current date and time
+  const currentDate = new Date()
+
+  // Set a boolean to display the banner only during the selected dates
+  const bannerIsLive = currentDate > startDate && currentDate < endDate
 
   return (
     <React.Fragment>
-      {(currentTime < 3 || utils.isRendering) && (
-        <div style={{ color: borderColor, fontStyle: "italics" }}>
-          The sales banner will be displayed from
-          {startTime}
-          {timeZone >= 0 && "+"}
-          {timeZone}UTC on {startDate} to
-          {endTime}
-          {timeZone >= 0 && "+"}
-          {timeZone}UTC on {endDate}
+      {(bannerIsLive || !isRendering) && (
+        <div className={joinClasses("pa3", css(classes.bannerWrapper))}>
+          {!isRendering && (
+            <div className={joinClasses("pb1", css(classes.bannerIsLiveText))}>
+              The sale banner is {bannerIsLive && "live"}
+              {!bannerIsLive && "not live"}
+              {". "}
+              <span className={css(classes.bannerIsLiveDateRange)}>
+                It will be displayed from {startDate.toDateString()} to{" "}
+                {endDate.toDateString()}.
+              </span>
+            </div>
+          )}
+          <div className={css(classes.bannerText)}>{text}</div>
         </div>
       )}
-      {utils.isRendering && (
-        <div style={{ color: borderColor, fontStyle: "italics" }}>
-          The sales banner will be displayed from
-          {startTime}
-          {timeZone >= 0 && "+"}
-          {timeZone}UTC on {startDate} to
-          {endTime}
-          {timeZone >= 0 && "+"}
-          {timeZone}UTC on {endDate}
-        </div>
-      )}
-      <div className={css(classes.banner)}>{text}</div>
     </React.Fragment>
   )
 }

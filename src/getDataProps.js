@@ -1,4 +1,1 @@
-export const getDataProps = (utils, props) => {
-  const isRendering = { utils }
-  return Promise.resolve({ isRendering })
-}
+export const getDataProps = (utils, props) => Promise.resolve({})

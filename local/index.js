@@ -1,7 +1,12 @@
 const tenantId = "$YOUR_TENANT_ID"
 
+const tomorrow = new Date() // start date
+const nextWeek = new Date() // end date
+tomorrow.setDate(nextWeek.getDate() + 1)
+nextWeek.setDate(nextWeek.getDate() + 7)
 const localEnvPropOverrides = {
   text: "Custom prop value for local testing",
+  dateRange: [tomorrow, nextWeek],
 }
 
 const dataUtils = {
