@@ -29,9 +29,9 @@ const Block = (props) => {
 
   return (
     <React.Fragment>
-      {(bannerIsLive || isRendering) && (
+      {(bannerIsLive || !isRendering) && (
         <div className={joinClasses("pa3", css(classes.bannerWrapper))}>
-          {isRendering && (
+          {!isRendering && (
             <div className={joinClasses("pb1", css(classes.bannerIsLiveText))}>
               The sale banner is {bannerIsLive && "live"}
               {!bannerIsLive && "not live"}
