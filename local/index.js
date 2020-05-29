@@ -1,5 +1,6 @@
 const tenantId = "$YOUR_TENANT_ID"
 
+// Set up local configuration for the dateRange picker
 const tomorrow = new Date() // start date
 const nextWeek = new Date() // end date
 tomorrow.setDate(nextWeek.getDate() + 1)

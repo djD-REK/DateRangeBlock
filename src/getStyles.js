@@ -3,9 +3,6 @@ export const getStyles = (blockConfig) => ({
     backgroundColor: "#EEEEEE",
     border: "1px solid black",
   },
-  bannerText: {
-    fontSize: "2rem",
-  },
   bannerIsLiveText: {
     color: "rgba(238,174,202,1)",
     fontStyle: "italic",
@@ -13,5 +10,8 @@ export const getStyles = (blockConfig) => ({
   },
   bannerIsLiveDateRange: {
     fontWeight: "normal",
+  },
+  bannerText: {
+    fontSize: "2rem",
   },
 })
