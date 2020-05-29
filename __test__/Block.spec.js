@@ -11,7 +11,7 @@ describe("The Block", () => {
   beforeEach(() => {
     props = {
       data: {},
-      utils,
+      utils: { isRendering: true, ...utils },
       joinClasses,
       queryParams: {},
     }

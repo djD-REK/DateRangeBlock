@@ -11,7 +11,7 @@ describe("The Block when loaded over AMP", () => {
   beforeEach(() => {
     props = {
       data: {},
-      utils: { ...utils, isAmpRequest: true },
+      utils: { isRendering: true, isAmpRequest: true, ...utils },
       joinClasses,
       queryParams: {},
     }
