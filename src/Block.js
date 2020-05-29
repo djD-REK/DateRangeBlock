@@ -19,8 +19,8 @@ const Block = (props) => {
   const [startDateProp, endDateProp] = dateRange
   // Dates set in VOLT's Site Designer are saved as ISO strings
   // (e.g. 2020-06-05T04:00:00.000Z). Convert them to Date objects:
-  startDate = new Date(startDateProp)
-  endDate = new Date(endDateProp)
+  const startDate = new Date(startDateProp)
+  const endDate = new Date(endDateProp)
   // Fetch the current date and time
   const currentDate = new Date()
 
