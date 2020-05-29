@@ -16,11 +16,7 @@ const Block = (props) => {
   // Destructure our Element props
   const { dateRange, text } = props
   // Destructure the dateRange array
-  const [startDateProp, endDateProp] = dateRange
-  // Dates set in VOLT's Site Designer are saved as ISO strings
-  // (e.g. 2020-06-05T04:00:00.000Z). Convert them to Date objects:
-  const startDate = new Date(startDateProp)
-  const endDate = new Date(endDateProp)
+  const [startDate, endDate] = dateRange
   // Fetch the current date and time
   const currentDate = new Date()
 
