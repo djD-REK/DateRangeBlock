@@ -10,8 +10,8 @@ let props
 describe("The Block", () => {
   beforeEach(() => {
     props = {
-      data: {},
-      utils: { isRendering: true, ...utils },
+      data: { isRendering: true },
+      utils,
       joinClasses,
       queryParams: {},
     }

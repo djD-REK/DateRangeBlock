@@ -10,8 +10,8 @@ let props
 describe("The Block when loaded over AMP", () => {
   beforeEach(() => {
     props = {
-      data: {},
-      utils: { isRendering: true, isAmpRequest: true, ...utils },
+      data: { isRendering: true },
+      utils: { isAmpRequest: true, ...utils },
       joinClasses,
       queryParams: {},
     }

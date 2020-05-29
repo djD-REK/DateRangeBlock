@@ -5,15 +5,16 @@ import { defaultConfig } from "./configs"
 
 const Block = (props) => {
   // Destructure the helper functions from the props
-  const { utils, joinClasses } = props
+  const { data, joinClasses } = props
+  // isRendering gets passed to the Block through /src/getDataProps.js
+  const { isRendering } = data
   // isRendering is true in a live VOLT Store or a store's preview, and
   // it is undefined in VOLT's Site Designer or when developing locally
-  const { isRendering } = utils
 
   // Get the CSS styles from Aphrodite
   const classes = StyleSheet.create(getStyles(props))
 
-  // Destructure our Element props
+  // Destructure the Element props
   const { dateRange, text } = props
   // Destructure the dateRange array
   const [startDate, endDate] = dateRange
