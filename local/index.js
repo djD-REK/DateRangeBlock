@@ -1,6 +1,16 @@
 const tenantId = "$YOUR_TENANT_ID"
 
 // Set up local configuration for the dateRange picker
+const yesterday = new Date() // start date
+const nextWeek = new Date() // end date
+yesterday.setDate(yesterday.getDate() - 1)
+nextWeek.setDate(nextWeek.getDate() + 7)
+const localEnvPropOverrides = {
+  text: "Custom prop value for local testing",
+  dateRange: [yesterday, nextWeek],
+}
+
+/* Alternative configuration starting tomorrow:
 const tomorrow = new Date() // start date
 const nextWeek = new Date() // end date
 tomorrow.setDate(nextWeek.getDate() + 1)
@@ -8,10 +18,11 @@ nextWeek.setDate(nextWeek.getDate() + 7)
 const localEnvPropOverrides = {
   text: "Custom prop value for local testing",
   dateRange: [tomorrow, nextWeek],
-}
+} */
 
 const dataUtils = {
-  isRendering: true,
+  // Try uncommenting the following line to set isRendering to be true:
+  // isRendering: true,
 }
 
 const blockModule = window.volBlock_local
