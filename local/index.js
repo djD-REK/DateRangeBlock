@@ -6,7 +6,7 @@ const nextWeek = new Date() // end date
 yesterday.setDate(yesterday.getDate() - 1)
 nextWeek.setDate(nextWeek.getDate() + 7)
 const localEnvPropOverrides = {
-  text: "Custom prop value for local testing",
+  // text: "Custom prop value for local testing",
   dateRange: [yesterday, nextWeek],
 }
 
